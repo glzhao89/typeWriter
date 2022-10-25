@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
   getLastLine(fp, cache);
   //printf("%s", cache);
 
-  printf("Enter words(q to quit):\n");
+  printf("Enter words(s - [show last line], q - [quit]):\n");
   while(1) {
     memset(input, 0, sizeof(input));
     fgets(input, sizeof(input), stdin);
