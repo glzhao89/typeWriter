@@ -10,6 +10,14 @@
 void getLastLine(FILE *fp, char *buf) {
   char c;
   int len = 0;
+
+  // check if file is empty
+  c = fgetc(fp);
+  if (feof(fp)) {
+    buf[0] = '\n';
+    return;
+  }
+
   // last two characters in FILE \n, EOF
   fseek(fp, BACKWARD_STEP, SEEK_END);
   c = fgetc(fp);
@@ -34,7 +42,7 @@ int main(int argc, char *argv[]) {
     return -1;
   }
 
-  FILE *fp = fopen(argv[1], "a+");
+  FILE *fp = fopen(argv[1], "w+");
   if (fp == NULL) {
     printf("Invalid file path: %s\n", argv[1]);
     return -1;
